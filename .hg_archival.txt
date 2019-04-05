@@ -1,0 +1,6 @@
+repo: e803bb5fe03c1370cbb9f434912cd73fd1e7942d
+node: 800ab9dd67a12fe581bdeb55c961a38846f82cb1
+branch: ardupilot
+latesttag: gazebo8_8.3.0
+latesttagdistance: 20
+changessincelatesttag: 127
