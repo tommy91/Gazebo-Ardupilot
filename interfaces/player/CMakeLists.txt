@@ -1,3 +1,5 @@
+## NOTE: file edited by Github user @tommy91
+
 set (sources GazeboDriver.cc
              GazeboInterface.cc
              GazeboTime.cc
@@ -21,6 +23,7 @@ include_directories(
   ${PLAYER_INCLUDE_DIRS} 
   ${OPENGL_INCLUDE_DIR}
   ${OGRE_INCLUDE_DIRS}
+  ${OGRE_INCLUDE_DIRS}/Paging
   ${Boost_INCLUDE_DIRS}
 )
 

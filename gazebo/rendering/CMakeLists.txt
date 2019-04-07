@@ -1,7 +1,10 @@
+## NOTE: file edited by Github user @tommy91
+
 include (${gazebo_cmake_dir}/GazeboUtils.cmake)
 
 include_directories(SYSTEM
   ${OGRE_INCLUDE_DIRS}
+  ${OGRE_INCLUDE_DIRS}/Paging
   ${TBB_INCLUDEDIR}
   skyx
   skyx/include

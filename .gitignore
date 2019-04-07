@@ -1,0 +1,4 @@
+## File introduced by Github user @tommy91
+
+# Exclude build directory
+build/

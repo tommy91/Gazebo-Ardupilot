@@ -5,6 +5,8 @@
 # free to make use of it in any way you like.
 #-------------------------------------------------------------------
 
+## NOTE: file edited by Github user @tommy91
+
 #######################################################################
 # Find all necessary and optional SKYX dependencies
 #######################################################################
@@ -92,6 +94,7 @@ include_directories(
 
 link_directories(
   ${OGRE_LIBRARY_DIRS}
+  ${OGRE_INCLUDE_DIRS}/Paging
   ${Boost_LIBRARY_DIRS}
 )
 

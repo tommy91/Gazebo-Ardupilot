@@ -15,6 +15,10 @@
 *
 */
 
+/**
+ * NOTE: file edited by Github user @tommy91
+ */
+
 #include <gazebo/gazebo_config.h>
 #include <gazebo/common/AudioDecoder.hh>
 #include <gazebo/common/Console.hh>
@@ -255,8 +259,8 @@ bool AudioDecoder::SetFile(const std::string &_filename)
     return false;
   }
 
-  if (this->codec->capabilities & CODEC_CAP_TRUNCATED)
-    this->codecCtx->flags |= CODEC_FLAG_TRUNCATED;
+  if (this->codec->capabilities & AV_CODEC_CAP_TRUNCATED)
+    this->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
 
   // Open codec
   if (avcodec_open2(this->codecCtx, this->codec, nullptr) < 0)

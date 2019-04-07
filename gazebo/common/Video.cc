@@ -15,6 +15,10 @@
  *
 */
 
+/**
+ * NOTE: file edited by Github user @tommy91
+ */
+
 #include "gazebo/gazebo_config.h"
 #include "gazebo/common/Console.hh"
 #include "gazebo/common/Video.hh"
@@ -143,8 +147,8 @@ bool Video::Load(const std::string &_filename)
 
   // Inform the codec that we can handle truncated bitstreams -- i.e.,
   // bitstreams where frame boundaries can fall in the middle of packets
-  if (codec->capabilities & CODEC_CAP_TRUNCATED)
-    this->codecCtx->flags |= CODEC_FLAG_TRUNCATED;
+  if (codec->capabilities & AV_CODEC_CAP_TRUNCATED)
+    this->codecCtx->flags |= AV_CODEC_FLAG_TRUNCATED;
 
   // Open codec
   if (avcodec_open2(this->codecCtx, codec, nullptr) < 0)

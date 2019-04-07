@@ -1,3 +1,5 @@
+## NOTE: file edited by Github user @tommy91
+
 if (WIN32)
   add_definitions(-DBUILDING_DLL -DBUILDING_DLL_GZ_PLUGIN)
 endif()
@@ -8,6 +10,7 @@ include_directories(
   ${PROTOBUF_INCLUDE_DIR}
   ${SDFormat_INCLUDE_DIRS}
   ${OGRE_INCLUDE_DIRS}
+  ${OGRE_INCLUDE_DIRS}/Paging
   ${Qt5Core_INCLUDE_DIRS}
 )
 

@@ -1,3 +1,101 @@
+## NOTE: file edited by Github user @tommy91
+--------------------------------------------
+
+This is my edit of the 'ardupilot' branch of the Gazebo simulator source,
+to make it work on macOS Mojave. You can find the original code here: 
+                  https://bitbucket.org/osrf/gazebo
+
+The initial commit is the clone of the original 'ardupilot' branch.
+Next commits show you the changes I've made to resolve the errors I got.
+
+
+Initial setup:
+
+- Install 'homebrew' to make things easier:
+    with homebrew you can search for packages using:
+      $ brew search PACKAGE_NAME
+    and install packages using:
+      $ brew install PACKAGE_NAME
+  This is usefull to install all the missing dependencies
+  that the compiler will complain about.
+
+- If you don't have it already, install 'cmake':
+    $ brew install cmake
+
+
+Compilation/installation steps that worked for me:
+
+- Clone or download the repository into a directory and go into it:
+    $ git clone https://github.com/tommy91/Gazebo-Ardupilot.git MY_DIRECTORY
+    $ cd MY_DIRECTORY
+
+- Create a build directory and go there:
+    $ mkdir build
+    $ cd build
+
+- Make with:
+    $ cmake ../
+
+- If no 'BUILD ERRORS' you can skip the next 3 steps.
+
+- Run this command to be able to find in the next step the needed formulas:
+    $ brew tap osrf/simulation
+
+- Missing dependencies I've instelled (notified in 'BUILD ERRORS'):
+    $ brew install freeimage
+    $ brew install protobuf
+        If this error (or similar) happens:
+            ==> Pouring python@2-2.7.16.mojave.bottle.tar.gz
+            Error: An unexpected error occurred during the `brew link` step
+            The formula built, but is not symlinked into /usr/local
+            Permission denied @ dir_s_mkdir - /usr/local/Frameworks
+            Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks
+        I solved it with:
+            $ sudo mkdir /usr/local/Frameworks    (which was missing)
+            $ sudo chown $(whoami):admin /usr/local/Frameworks
+    $ brew install sdformat5
+    $ brew install qt5
+        And also:
+            $ export Qt5Widgets_DIR=/usr/local/opt/qt5/lib/cmake/Qt5Widgets
+            $ export Qt5OpenGL_DIR=/usr/local/opt/qt5/lib/cmake/Qt5OpenGL
+            $ export Qt5Test_DIR=/usr/local/opt/qt5/lib/cmake/Qt5Test
+    $ brew install ignition-msgs0
+    $ brew install ignition-transport3
+    $ brew install libtar
+    $ brew install tinyxml2
+    $ brew install tbb
+    $ brew install ogre1.9
+        If still in build errors after installing:
+            $ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+    $ brew install qwt
+    $ brew install boost@1.55
+        And also:
+            $ brew link --force boost@1.55
+
+  ( You need to install all the missing dependencies notified in build errors,
+    after you install a dependency redo 'cmake ../', 
+    when there are no more build errors you can go on )
+
+- To solve 'Missing: libcurl. Required for connection to model database.' I did:
+    $ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/Homebrew/Library/Homebrew/os/mac/pkgconfig/10.12
+
+- When no more build errors, run the command:
+    $ make -j4
+
+- Install with:
+    $ sudo make install
+
+- Try with:
+    $ gazebo --verbose
+
+
+If you notice any violation in the use I've made of this project please contact me.
+
+## END OF EDITS: it follows the original content
+------------------------------------------------
+
+
+
 Gazebo - A dynamic multi-robot simulator
 ----------------------------------------
 

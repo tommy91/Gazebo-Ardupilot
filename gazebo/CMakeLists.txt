@@ -1,6 +1,9 @@
+## NOTE: file edited by Github user @tommy91
+
 include_directories(SYSTEM
   ${OPENGL_INCLUDE_DIR}
   ${OGRE_INCLUDE_DIRS}
+  ${OGRE_INCLUDE_DIRS}/Paging
   ${Boost_INCLUDE_DIRS}
   ${PROTOBUF_INCLUDE_DIR}
   ${SDFormat_INCLUDE_DIRS}
